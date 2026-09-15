@@ -19,6 +19,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
+    { name: '3D Visualizer', href: '#visualize' },
     { name: 'Why Us', href: '#why-us' },
     { name: 'Portfolio', href: '#gallery' },
     { name: 'Reviews', href: '#reviews' },

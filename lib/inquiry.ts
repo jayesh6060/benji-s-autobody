@@ -9,6 +9,7 @@ export interface InquiryFormData {
   preferredDate?: string;
   preferredTime?: string;
   message?: string;
+  visualizerSummary?: string;
   photoFiles?: File[];
   photoUrls?: string[];
 }
@@ -76,6 +77,12 @@ export async function submitInquiry(data: InquiryFormData): Promise<InquiryResul
 
   if (data.preferredTime && data.preferredTime.trim()) {
     messageLines.push(`*Preferred Time:* ${data.preferredTime.trim()}`);
+  }
+
+  if (data.visualizerSummary && data.visualizerSummary.trim()) {
+    messageLines.push(``);
+    messageLines.push(`🛠️ *3D VEHICLE REPAIR SPECIFICATIONS:*`);
+    messageLines.push(data.visualizerSummary.trim());
   }
 
   if (data.message && data.message.trim()) {

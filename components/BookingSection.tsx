@@ -9,9 +9,10 @@ import { MessageSquare, Upload, Phone, ShieldCheck, AlertCircle, ArrowRight } fr
 
 interface BookingSectionProps {
   selectedServiceTitle?: string;
+  visualizerSummary?: string;
 }
 
-export default function BookingSection({ selectedServiceTitle }: BookingSectionProps) {
+export default function BookingSection({ selectedServiceTitle, visualizerSummary }: BookingSectionProps) {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -74,6 +75,7 @@ export default function BookingSection({ selectedServiceTitle }: BookingSectionP
       preferredDate,
       preferredTime,
       message,
+      visualizerSummary,
       photoFiles,
     };
 
@@ -104,6 +106,18 @@ export default function BookingSection({ selectedServiceTitle }: BookingSectionP
           <p className="text-slate-600 text-base sm:text-lg">
             Fill out the form below. Your request will format instantly into a WhatsApp chat directly with owner Benji.
           </p>
+
+          {visualizerSummary && (
+            <div className="p-4 rounded-xl bg-blue-900 text-white border border-blue-700 text-xs font-mono flex items-center justify-between text-left shadow-lg">
+              <div className="flex items-center gap-3">
+                <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                <div>
+                  <span className="font-bold text-emerald-400 uppercase tracking-wider block">3D Vehicle Repair Summary Attached!</span>
+                  <span className="text-slate-300 text-[11px]">Your 3D damage pins and paint selections are attached to this request.</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">
